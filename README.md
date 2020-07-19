@@ -1,9 +1,11 @@
 # xwbank2020_baseline_pytorch
  “2020创青春·交子杯” 新网银行金融科技挑战赛AI算法赛道baseline
- score :0.73509
+
+
 
 # 比赛地址
 https://www.kesci.com/custom_landing/xwbank
+##  score :0.73509
 
 ## Note:
 
