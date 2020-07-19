@@ -180,7 +180,8 @@ class Agent(object):
     def load_best_model(self):
 
         load_names=[  name for name in os.listdir(self.save_dir+"/model/") if name.endswith(".pth")]
-        load_name=sorted(load_names,key=lambda x:float(x.split(".")[0].split("-")[-1].split("_")[-1]),reverse=True)[0]
+        load_name = sorted(load_names, key=lambda x: float(x.split(".")[-2]),
+                           reverse=True)[0]
         self.load_weights(load_name)
 
     def predict(self,data,phase,batch_size=1024):

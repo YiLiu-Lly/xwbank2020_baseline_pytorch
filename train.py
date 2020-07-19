@@ -22,7 +22,7 @@ if not os.path.exists(SAVE_DIR):
 
 data_dir="./dataset"
 sub=pd.read_csv("sub.csv")
-EPOCH=200
+EPOCH=150
 BATCH_SIZE=512
 
 
@@ -38,8 +38,7 @@ ACTIVATION="relu"
 
 
 METRICS=XWMetrics()
-train_data=XWDataset(os.path.join(data_dir,"sensor_train.csv"),with_label=True,
-                     with_nosie=True,noise_SNR_db=[5,15])
+train_data=XWDataset(os.path.join(data_dir,"sensor_train.csv"),with_label=True)
 test_data=XWDataset(os.path.join(data_dir,"sensor_test.csv"),with_label=False,)
 proba_t = np.zeros((len(test_data), NUM_CLASSES))
 folds=5

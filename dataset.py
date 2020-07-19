@@ -107,10 +107,11 @@ class XWDataset(object):
         if self.with_label:
             #标准化
             X=standardization(X)
-            X1 = jitter(X, self.noise_SNR_db)
-            X = np.concatenate([X, X1], axis=0)
-            Y =np.array( df.groupby("fragment_id")["behavior_id"].min())
-            Y = np.concatenate([Y, Y], axis=0)
+            Y = np.array(df.groupby("fragment_id")["behavior_id"].min())
+            if self.with_nosie:
+                X1 = jitter(X, self.noise_SNR_db)
+                X = np.concatenate([X, X1], axis=0)
+                Y = np.concatenate([Y, Y], axis=0)
             self.X ,self.Y=X,Y
         else:
             # 标准化

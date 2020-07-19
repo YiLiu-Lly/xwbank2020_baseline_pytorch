@@ -6,7 +6,7 @@ class Model(nn.Module):
         super(Model, self).__init__()
 
         # input: 1, num, features_num
-        base_channel=32
+        base_channel=64
         self.features = nn.Sequential(
             # 1
             nn.Conv2d(1, base_channel, kernel_size=(3, 3),stride=(1,1),padding=(1,1)),
@@ -20,6 +20,9 @@ class Model(nn.Module):
             # 3
             nn.Conv2d(base_channel*2, base_channel*4, kernel_size=(3, 3), stride=(1,1),padding=(1,1)),
             nn.BatchNorm2d(base_channel*4),
+            nn.ReLU(inplace=True),
+            nn.Conv2d(base_channel * 4, base_channel * 4, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1)),
+            nn.BatchNorm2d(base_channel * 4),
             nn.ReLU(inplace=True),
             # last
             nn.AdaptiveMaxPool2d((1, 1)),
