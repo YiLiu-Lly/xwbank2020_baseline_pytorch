@@ -1,4 +1,4 @@
-# xwbank2020_baseline_pytorch
+# xwbank2020_baseline_pytorch（来自队伍:买米当卡）
  “2020创青春·交子杯” 新网银行金融科技挑战赛AI算法赛道baseline
 
 
